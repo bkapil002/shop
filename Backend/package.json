@@ -7,7 +7,9 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js",
+    "dev": " nodemon server.js"
   },
   "dependencies": {
     "bcryptjs": "^3.0.2",
@@ -15,6 +17,7 @@
     "cookie-parse": "^0.4.0",
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
+    "express": "^5.1.0",
     "express-validation": "^4.1.1",
     "exprss": "^0.0.1-security",
     "mongoose": "^8.14.2",
