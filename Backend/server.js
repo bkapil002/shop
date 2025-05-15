@@ -5,6 +5,7 @@ const connectDB = require('./config/db');
 const setupCluster = require('./config/cluster');
 const cookieParser = require('cookie-parser');
 
+const user = require('./Routes/user')
 
 const app = express();
 
@@ -49,7 +50,7 @@ async function initializeApp() {
     }
 
     // Routes
-    
+    app.use('/api/user' ,user)
     // Health check route
     app.get('/health', (req, res) => {
       res.json({
