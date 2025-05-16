@@ -1,0 +1,204 @@
+.address-form-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom right, #f0f9ff, #e0e7ff);
+  padding: 1rem;
+}
+
+.address-form-card {
+  width: 100%;
+  max-width: 480px;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.address-form-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.address-icon-container {
+  width: 4rem;
+  height: 4rem;
+  background-color: rgba(37, 99, 235, 0.1);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  transition: transform 0.3s ease;
+}
+
+.address-icon-container:hover {
+  transform: rotate(12deg);
+}
+
+.address-icon {
+  width: 2rem;
+  height: 2rem;
+  color: #2563eb;
+}
+
+.address-form-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+.address-form-subtitle {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.address-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 0.75rem;
+  transition: border-color 0.2s ease;
+}
+
+.form-input:focus {
+  border-color: #2563eb;
+  outline: none;
+}
+
+.form-hint {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.address-type-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.address-type-button {
+  padding: 0.5rem 1rem;
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 2px solid #e5e7eb;
+  border-radius: 0.75rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  background-color: white;
+}
+
+.address-type-button.active {
+  border-color: #2563eb;
+  background-color: rgba(37, 99, 235, 0.1);
+  color: #2563eb;
+}
+
+.phone-input-container {
+  display: flex;
+  border: 2px solid #e5e7eb;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+
+.phone-input-container:focus-within {
+  border-color: #2563eb;
+}
+
+.phone-country-code {
+  padding: 0.75rem 1rem;
+  background-color: #f9fafb;
+  color: #6b7280;
+  border-right: 2px solid #e5e7eb;
+}
+
+.phone-input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: none;
+  outline: none;
+}
+
+.phone-input:focus {
+  outline: none;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .form-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.submit-button {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.submit-button:hover {
+  background-color: #1d4ed8;
+}
+
+.submit-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.loading-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.spinner-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
