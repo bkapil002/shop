@@ -4,7 +4,7 @@ const User = require('../Model/User');
 const {generateToken} = require('../ultils/tokenUtils')
 const cookiConfig =require('../ultils/cookieConfig')
 const router = express.Router();
-
+const {auth} = require('../middleware/auth')
 
 
 router.post('/signup' , async(req, res)=>{
@@ -74,16 +74,16 @@ router.post('/logOut',(req,res)=>{
  
 })
  
-// router.get('/me',auth,async(req,res)=>{
-//   try{
-//     const user = await User.findById(req.user._id);
-//     if(!user){
-//       return res.status(404).json({message: 'User not found'});
-//     }
-//     res.json(user);
-//   }catch(error){
-//     res.status(500).json({error: error.message});
-//   }
-// })
+router.get('/me',auth,async(req,res)=>{
+  try{
+    const user = await User.findById(req.user._id);
+    if(!user){
+      return res.status(404).json({message: 'User not found'});
+    }
+    res.json(user);
+  }catch(error){
+    res.status(500).json({error: error.message});
+  }
+})
 
 module.exports = router;

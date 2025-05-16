@@ -1,27 +1,37 @@
-.loginsignup{
+.loginsignup {
     width: 100%;
     min-height: 90vh;
     background: #fce3fe;
     padding-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.loginsignup-container{
+
+.loginsignup-container {
     width: 90%;
     max-width: 550px;
     background: white;
     margin: auto;
     padding: 30px 40px;
     box-sizing: border-box;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-.loginsignup-container h1{
+
+.loginsignup-container h1 {
     margin: 15px 0px;
+    text-align: center;
 }
-.loginsignup-fields{
+
+.loginsignup-fields {
     display: flex;
     flex-direction: column;
     gap: 25px;
     margin-top: 20px;
 }
-.loginsignup-fields input{
+
+.loginsignup-fields input {
     height: 60px;
     width: 100%;
     padding-left: 20px;
@@ -30,8 +40,24 @@
     color: #5c5c5c;
     font-size: 18px;
     box-sizing: border-box;
+    border-radius: 4px;
 }
-.loginsignup-container button{
+
+.loginsignup-fields div[style*="position: relative"] input {
+    padding-right: 40px; /* Space for the eye icon */
+}
+
+.loginsignup-fields button[type="button"] {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.loginsignup-container button[type="submit"] {
     width: 100%;
     height: 60px;
     color: white;
@@ -41,18 +67,23 @@
     font-size: 22px;
     font-weight: 500;
     cursor: pointer;
+    border-radius: 4px;
 }
-.loginsignup-login{
+
+.loginsignup-login {
     margin-top: 20px;
     color: #5c5c5c;
     font-size: 16px;
     font-weight: 500;
+    text-align: center;
 }
-.loginsignup-login span{
+
+.loginsignup-login span {
     color: #ff4141;
     font-weight: 600;
 }
-.loginsignup-agree{
+
+.loginsignup-agree {
     display: flex;
     align-items: center;
     margin-top: 18px;
@@ -61,25 +92,38 @@
     font-size: 15px;
     font-weight: 500;
 }
-@media(max-width: 600px){
-    .loginsignup-container h1{
+
+/* Media queries for smaller devices */
+@media (max-width: 600px) {
+    .loginsignup-container {
+        padding: 20px;
+    }
+
+    .loginsignup-container h1 {
         font-size: 22px;
         margin: 0px;
     }
-    .loginsignup-container{
-        padding: 30px 20px;
-    }
-    .loginsignup-fields input{
+
+    .loginsignup-fields input {
         padding-left: 10px;
         font-size: 16px;
         height: 50px;
     }
-    .loginsignup-fields{
+
+    .loginsignup-fields {
         gap: 15px;
     }
-    .loginsignup-container button{
+
+    .loginsignup-container button[type="submit"] {
         height: 50px;
         margin-top: 20px;
         font-size: 17px;
+    }
+}
+
+/* Media queries for larger devices */
+@media (min-width: 601px) {
+    .loginsignup-container {
+        padding: 30px 40px;
     }
 }
