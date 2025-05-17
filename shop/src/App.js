@@ -16,6 +16,8 @@ import Men from './Components/Men/Men';
 import Women from './Components/Women/Women';
 import ProductPage from './Components/ProductPage/ProductPage';
 import CartPage from './Components/Cart/CartPage';
+import Checkout from './Components/Checkout/Checkout';
+import Orders from './Components/Orders/Orders';
 
 
 function App() {
@@ -36,6 +38,8 @@ function App() {
         <Route path='/men' element={<Men/>}/>
         <Route path='/product/:id' element={<ProductPage/>}/>
         <Route path= '/cart' element={<CartPage/>}/>
+        <Route path='/Checkout' element={<Checkout/>}/>
+        <Route path='/orders'element={<Orders/>}/>
         </Routes>
        <Footer/>
        </AuthProvider>

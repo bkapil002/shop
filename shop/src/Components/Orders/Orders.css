@@ -1,0 +1,418 @@
+/* Orders Page */
+.orders-page {
+  min-height: 100vh;
+  background-color: #f9fafb;
+  padding: 3rem 0;
+}
+
+.orders-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .orders-container {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .orders-container {
+    padding: 0 2rem;
+  }
+}
+
+/* Orders Header */
+.orders-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.orders-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.orders-count {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+/* Orders List */
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Order Card */
+.order-card {
+  background-color: #fff;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+  transition: all 0.2s ease-in-out;
+}
+
+.order-card:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.order-content {
+  padding: 1.5rem;
+}
+
+/* Order Header */
+.order-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.order-date {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 0.25rem;
+}
+
+.order-id {
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+.delivery-date {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.order-status {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.status-badge {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.status-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 0.5rem;
+}
+
+.status-ordered {
+  color: #b45309;
+  background-color: #fef9c3;
+  border: 1px solid #f59e0b;
+}
+
+.status-shipping {
+  color: #0369a1;
+  background-color: #dbeafe;
+  border: 1px solid #3b82f6;
+}
+
+.status-out-for-delivery {
+  color: #4f46e5;
+  background-color: #eef2ff;
+  border: 1px solid #6366f1;
+}
+
+.status-delivered {
+  color: #059669;
+  background-color: #dcfce7;
+  border: 1px solid #10b981;
+}
+
+.status-cancelled {
+  color: #b91c1c;
+  background-color: #fee2e2;
+  border: 1px solid #ef4444;
+}
+
+.status-return-requested {
+  color: #7c3aed;
+  background-color: #f5f3ff;
+  border: 1px solid #8b5cf6;
+}
+
+.status-return-processed {
+  color: #374151;
+  background-color: #f3f4f6;
+  border: 1px solid #6b7280;
+}
+
+.order-total {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* Products List */
+.products-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Product Item */
+.product-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.product-image-container {
+  flex-shrink: 0;
+}
+
+.product-image {
+  width: 6rem;
+  height: 6rem;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e7eb;
+}
+
+.product-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.product-name {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.product-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.product-price {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.return-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  color: #3b82f6;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.return-button:hover {
+  background-color: #e0f2fe;
+}
+
+.return-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 0.5rem;
+}
+
+.return-requested {
+  display: inline-flex;
+  align-items: center;
+  color: #3b82f6;
+}
+
+/* Cancel Order */
+.cancel-order {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+}
+
+.cancel-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  color: #ef4444;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.cancel-button:hover {
+  background-color: #fee2e2;
+}
+
+.cancel-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 0.5rem;
+}
+
+/* Loading Container */
+.loading-container {
+  min-height: 100vh;
+  background-color: #f9fafb;
+  padding: 1rem;
+}
+
+.loading-header {
+  height: 2rem;
+  background-color: #e5e7eb;
+  border-radius: 0.5rem;
+  width: 10rem;
+  margin-bottom: 2rem;
+}
+
+/* Orders Skeleton */
+.orders-skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.skeleton-order {
+  background-color: #fff;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+  animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.skeleton-header {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.skeleton-row {
+  height: 1rem;
+  background-color: #e5e7eb;
+  border-radius: 0.25rem;
+}
+
+.skeleton-row:nth-child(1) {
+  width: 8rem;
+}
+
+.skeleton-row:nth-child(2) {
+  width: 6rem;
+}
+
+.skeleton-products {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.skeleton-product {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.skeleton-image {
+  width: 6rem;
+  height: 6rem;
+  background-color: #e5e7eb;
+  border-radius: 0.5rem;
+}
+
+.skeleton-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.skeleton-details .skeleton-row {
+  width: 100%;
+}
+
+.skeleton-details .skeleton-row:nth-child(1) {
+  width: 75%;
+}
+
+.skeleton-details .skeleton-row:nth-child(2) {
+  width: 50%;
+}
+
+/* Empty Orders */
+.empty-orders {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9fafb;
+  padding: 1rem;
+}
+
+.empty-content {
+  text-align: center;
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.empty-icon {
+  width: 4rem;
+  height: 4rem;
+  color: #9ca3af;
+  margin: 0 auto 1.5rem;
+}
+
+.empty-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+.empty-message {
+  font-size: 1rem;
+  color: #6b7280;
+}
+
+/* Animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
