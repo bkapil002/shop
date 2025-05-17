@@ -234,7 +234,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ onAddProduct, onCancel }) => 
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                   >
                     <option value="Men">MEN</option>
-                    <option value="Women">wOMEN</option>
+                    <option value="Women">WOMEN</option>
                     <option value="Kids">KIDS</option>
                     <option value="Shop">SHOP</option>
                   </select>

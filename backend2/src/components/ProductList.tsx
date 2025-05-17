@@ -88,11 +88,11 @@ const ProductList: React.FC<ProductListProps> = ({ products }) => {
                 <div className="mb-2">
                   <div className="flex items-center">
                     <span className="text-lg font-bold text-gray-900">
-                      ₹{product.sellingPrice?.toFixed(2) || product.price.toFixed(2)}
+                      ${product.sellingPrice?.toFixed(2) || product.price.toFixed(2)}
                     </span>
                     {discountPercentage > 0 && (
                       <span className="text-sm text-gray-500 line-through ml-2">
-                        ₹{product.price.toFixed(2)}
+                        ${product.price.toFixed(2)}
                       </span>
                     )}
                   </div>

@@ -253,7 +253,7 @@ const OrderManagement: React.FC = () => {
                   <div className="text-right">
                     <div className="mb-2">{renderStatusBadge(order.status)}</div>
                     <p className="text-xl font-bold text-gray-900">
-                      ₹{order.totalAmount?.toFixed(2) || 'N/A'}
+                      ${order.totalAmount?.toFixed(2) || 'N/A'}
                     </p>
                   </div>
                 </div>
@@ -306,7 +306,7 @@ const OrderManagement: React.FC = () => {
                             Size: {item.size}
                           </p>
                           <p className="text-gray-600">
-                            {item.quantity} × ₹{item.product.sellingPrice?.toFixed(2) || 'N/A'}
+                            {item.quantity} × ${item.product.sellingPrice?.toFixed(2) || 'N/A'}
                           </p>
                           {item.returnRequested && (
                             <span className="ml-4 inline-flex items-center text-blue-600">
@@ -317,7 +317,7 @@ const OrderManagement: React.FC = () => {
                         </div>
                       </div>
                       <p className="font-semibold text-gray-900">
-                        ₹{(item.quantity * item.product.sellingPrice)?.toFixed(2) || 'N/A'}
+                        ${(item.quantity * item.product.sellingPrice)?.toFixed(2) || 'N/A'}
                       </p>
                     </div>
                   ))}
