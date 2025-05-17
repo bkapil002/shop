@@ -9,11 +9,11 @@ const upload = multer({ storage: multer.memoryStorage() });
 // POST /uploadProduct
 router.post('/uploadProduct', upload.array('images', 5), async (req, res) => {
     try {
-        const { name, brand, features, category, sellingPrice, price, details, size } = req.body;
+        const { name, description, features, category, sellingPrice, price, details, size } = req.body;
         const parsedFeatures = JSON.parse(features);
         const parsedSize = JSON.parse(size);
 
-        if (!name || !brand || !category || !sellingPrice || !price) {
+        if (!name || !description || !category || !sellingPrice || !price) {
             return res.status(400).json({ success: false, message: 'All required fields must be provided' });
         }
 
@@ -29,7 +29,7 @@ router.post('/uploadProduct', upload.array('images', 5), async (req, res) => {
         }
 
         const product = new Product({
-            name, brand, price, sellingPrice, category, details,
+            name, description, price, sellingPrice, category, details,
             features: parsedFeatures, imageUrls, size: parsedSize,
         });
 
@@ -43,7 +43,7 @@ router.post('/uploadProduct', upload.array('images', 5), async (req, res) => {
 // PUT /updateProduct/:id
 router.put('/updateProduct/:id', upload.array('images', 5), async (req, res) => {
     try {
-        const { name, brand, category, sellingPrice, price, features, details, size } = req.body;
+        const { name, description, category, sellingPrice, price, features, details, size } = req.body;
         const product = await Product.findById(req.params.id);
 
         if (!product) {
@@ -51,7 +51,7 @@ router.put('/updateProduct/:id', upload.array('images', 5), async (req, res) => 
         }
 
         product.name = name;
-        product.brand = brand;
+        product.description = description;
         product.price = price;
         product.sellingPrice = sellingPrice;
         product.category = category;
@@ -116,7 +116,7 @@ router.get('/search', async (req, res) => {
         const searchQuery = {
             $or: [
                 { name: { $regex: searchRegex } },
-                { brand: { $regex: searchRegex } },
+                { description: { $regex: searchRegex } },
                 { category: { $regex: searchRegex } }
             ]
         };
@@ -184,8 +184,8 @@ router.get('/related-products/:id', async (req, res) => {
         }
         const relatedProducts = await Product.find({
             $or: [
-                { brand: originalProduct.brand, category: { $ne: originalProduct.category } },
-                { category: originalProduct.category, brand: { $ne: originalProduct.brand } }
+                { description: originalProduct.description, category: { $ne: originalProduct.category } },
+                { category: originalProduct.category, description: { $ne: originalProduct.description } }
             ],
             _id: { $ne: productId }
         });

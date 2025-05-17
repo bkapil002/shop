@@ -5,7 +5,7 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    brand:{
+    description:{
         type: String,
         required: true
     },
@@ -33,12 +33,11 @@ const productSchema = new mongoose.Schema({
       }],
 
     size:{
-        US7:{type: Boolean, default: false},
-        US8:{type: Boolean, default: false},
-        US9:{type: Boolean, default: false},
-        US10:{type: Boolean, default: false},
-        US11:{type: Boolean, default: false},
-        US12:{type: Boolean, default: false},
+        S:{type: Boolean, default: false},
+        M:{type: Boolean, default: false},
+        L:{type: Boolean, default: false},
+        XL:{type: Boolean, default: false},
+        XXL:{type: Boolean, default: false},
     }  ,
     details:String
 },{timestamps:true})

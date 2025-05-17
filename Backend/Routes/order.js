@@ -27,7 +27,7 @@ router.post('/', auth , async(req,res)=>{
             size:item.size,
             price: item.product.price,
             sellingPrice: item.product.sellingPrice,
-             brand: item.product.brand,
+             description: item.product.description,
             imageUrls: item.product.imageUrls, // Pass the array of image URLs
              name: item.product.name,
             features: item.product.features,

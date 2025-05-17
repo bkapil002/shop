@@ -4,10 +4,11 @@ const mongoose = require('mongoose');
 const connectDB = require('./config/db');
 const setupCluster = require('./config/cluster');
 const cookieParser = require('cookie-parser');
-
+const product = require('./Routes/product')
 const user = require('./Routes/user')
 const address = require('./Routes/address')
-
+const order = require('./Routes/order')
+const cart = require('./Routes/cart');
 const app = express();
 
 // CORS configuration
@@ -53,6 +54,9 @@ async function initializeApp() {
     // Routes
     app.use('/api/user' ,user)
     app.use('/api/address', address)
+    app.use('/api/product', product)
+    app.use('/api/order', order)
+    app.use('/api/cart', cart)
     // Health check route
     app.get('/health', (req, res) => {
       res.json({

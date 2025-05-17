@@ -22,7 +22,7 @@ const orderSchema = new mongoose.Schema({
             default: false
         },
         name: String,
-        brand: String,
+        description: String,
         price: Number,
         sellingPrice: Number,
         imageUrls: [{ type: String }], 

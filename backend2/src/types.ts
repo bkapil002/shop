@@ -5,12 +5,11 @@ export interface ProductFeatures {
   freeDelivery: boolean;
 }
 export interface ProductSize {
-  US7: boolean;
-  US8: boolean;
-  US9: boolean;
-  US10: boolean;
-  US11: boolean;
-  US12: boolean;
+  S: boolean;
+  M: boolean;
+  L: boolean;
+  XL: boolean;
+  XXL: boolean;
 }
 
 export interface OrderProduct {
@@ -61,25 +60,23 @@ export interface ProductFeatures {
 }
 
 export interface ProductSize {
-  US7: boolean;
-  US8: boolean;
-  US9: boolean;
-  US10: boolean;
-  US11: boolean;
-  US12: boolean;
+ S: boolean;
+  M: boolean;
+  L: boolean;
+  XL: boolean;
+  XXL: boolean;
 }
 
 export interface Product {
   id: string;
   _id: string;
   name: string;
-  brand: string;
+  description: string;
   details: string;
   price: number;
   sellingPrice?: number;
-  description?: string;
   imageUrls?: string[];
-  brandName?: string;
+  descriptionName?: string;
   category?: string;
   features?: ProductFeatures;
   size?: ProductSize;

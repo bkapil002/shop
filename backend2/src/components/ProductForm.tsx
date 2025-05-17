@@ -11,11 +11,11 @@ interface ProductFormProps {
 
 const ProductForm: React.FC<ProductFormProps> = ({ onAddProduct, onCancel }) => {
   const [name, setName] = useState('');
-  const [brand, setBrand] = useState('');
+  const [description, setdescription] = useState('');
   const [category, setCategory] = useState('Lifestyle');
   const [price, setPrice] = useState('');
-  const [sellingPrice, setSellingPrice] = useState('');
   const [details, setDetails] = useState('');
+  const [sellingPrice ,setSellingPrice] = useState('')
   const [features, setFeatures] = useState<ProductFeatures>({
     cashOnDelivery: false,
     lowestPrice: false,
@@ -23,12 +23,11 @@ const ProductForm: React.FC<ProductFormProps> = ({ onAddProduct, onCancel }) => 
     freeDelivery: false,
   });
   const [size, setSize] = useState<ProductSize>({
-    US7: false,
-    US8: false,
-    US9: false,
-    US10: false,
-    US11: false,
-    US12: false,
+    S: false,
+    M: false,
+    L: false,
+    XL: false,
+    XXL: false,
   });
   const [images, setImages] = useState<File[]>([]);
   const [imagePreviews, setImagePreviews] = useState<string[]>([]);
@@ -91,7 +90,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ onAddProduct, onCancel }) => 
       const compressedImages = await compressImages(images);
       const formData = new FormData();
       formData.append('name', name);
-      formData.append('brand', brand);
+      formData.append('description', description);
       formData.append('category', category);
       formData.append('price', price);
       formData.append('sellingPrice', sellingPrice);
@@ -214,12 +213,12 @@ const ProductForm: React.FC<ProductFormProps> = ({ onAddProduct, onCancel }) => 
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Brand Name
+                    Description 
                   </label>
                   <input
                     type="text"
-                    value={brand}
-                    onChange={(e) => setBrand(e.target.value)}
+                    value={description}
+                    onChange={(e) => setdescription(e.target.value)}
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required
                   />
@@ -234,19 +233,17 @@ const ProductForm: React.FC<ProductFormProps> = ({ onAddProduct, onCancel }) => 
                     onChange={(e) => setCategory(e.target.value)}
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                   >
-                    <option value="Lifestyle">Lifestyle</option>
-                    <option value="Airmax">Airmax</option>
-                    <option value="Running">Running</option>
-                    <option value="Sneakers">Sneakers</option>
-                    <option value="Training">Training</option>
-                    <option value="Other">Other</option>
+                    <option value="Men">MEN</option>
+                    <option value="Women">wOMEN</option>
+                    <option value="Kids">KIDS</option>
+                    <option value="Shop">SHOP</option>
                   </select>
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Price (₹)
+                      Price ($)
                     </label>
                     <input
                       type="number"
@@ -258,7 +255,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ onAddProduct, onCancel }) => 
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Selling Price (₹)
+                      Selling Price ($)
                     </label>
                     <input
                       type="number"

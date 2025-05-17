@@ -12,7 +12,7 @@ interface ProductFormProps {
 
 const UpdateProductForm: React.FC<ProductFormProps> = ({ onAddProduct, onClose, product }) => {
   const [name, setName] = useState(product?.name || '');
-  const [brand, setBrand] = useState(product?.brand || '');
+  const [description, setdescription] = useState(product?.description || '');
   const [category, setCategory] = useState(product?.category || 'Home');
   const [price, setPrice] = useState(product?.price?.toString() || '');
   const [sellingPrice, setSellingPrice] = useState(product?.sellingPrice?.toString() || '');
@@ -21,12 +21,11 @@ const UpdateProductForm: React.FC<ProductFormProps> = ({ onAddProduct, onClose, 
   const [lowestPrice, setLowestPrice] = useState(product?.features?.lowestPrice || false);
   const [fiveDayReturns, setFiveDayReturns] = useState(product?.features?.fiveDayReturns || false);
   const [freeDelivery, setFreeDelivery] = useState(product?.features?.freeDelivery || false);
-  const [US7, setSizeUS7] = useState(product?.size?.US7 || false);
-  const [US8, setSizeUS8] = useState(product?.size?.US8 || false);
-  const [US9, setSizeUS9] = useState(product?.size?.US9 || false);
-  const [US10, setSizeUS10] = useState(product?.size?.US10 || false);
-  const [US11, setSizeUS11] = useState(product?.size?.US11 || false);
-  const [US12, setSizeUS12] = useState(product?.size?.US12 || false);
+  const [S, setSizeS] = useState(product?.size?.S || false);
+  const [M, setSizeM] = useState(product?.size?.M || false);
+  const [L, setSizeL] = useState(product?.size?.L || false);
+  const [XL, setSizeXL] = useState(product?.size?.XL || false);
+  const [XXL, setSizeXXL] = useState(product?.size?.XXL || false);
   const [images, setImages] = useState<File[]>([]);
   const [imagePreviews, setImagePreviews] = useState<string[]>(product?.imageUrls || []);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -93,7 +92,7 @@ const UpdateProductForm: React.FC<ProductFormProps> = ({ onAddProduct, onClose, 
       const compressedImages = await compressImages(images);
       const formData = new FormData();
       formData.append('name', name);
-      formData.append('brand', brand);
+      formData.append('description', description);
       formData.append('category', category);
       formData.append('price', price);
       formData.append('sellingPrice', sellingPrice);
@@ -106,12 +105,11 @@ const UpdateProductForm: React.FC<ProductFormProps> = ({ onAddProduct, onClose, 
       }));
 
       formData.append('size', JSON.stringify({
-        US7,
-        US8,
-        US9,
-        US10,
-        US11,
-        US12,
+        S,
+        M,
+        L,
+        XL,
+        XXL,
       }));
 
       compressedImages.forEach((image: any) => {
@@ -215,12 +213,12 @@ const UpdateProductForm: React.FC<ProductFormProps> = ({ onAddProduct, onClose, 
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Brand Name
+                    Description 
                   </label>
                   <input
                     type="text"
-                    value={brand}
-                    onChange={(e) => setBrand(e.target.value)}
+                    value={description}
+                    onChange={(e) => setdescription(e.target.value)}
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required
                   />
@@ -235,19 +233,17 @@ const UpdateProductForm: React.FC<ProductFormProps> = ({ onAddProduct, onClose, 
                     onChange={(e) => setCategory(e.target.value)}
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                   >
-                    <option value="Lifestyle">Lifestyle</option>
-                    <option value="Airmax">Airmax</option>
-                    <option value="Running">Running</option>
-                    <option value="Sneakers">Sneakers</option>
-                    <option value="Training">Training</option>
-                    <option value="Other">Other</option>
+                    <option value="Men">MEN</option>
+                    <option value="Women">wOMEN</option>
+                    <option value="Kids">KIDS</option>
+                    <option value="Shop">SHOP</option>
                   </select>
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Price (₹)
+                      Price ($)
                     </label>
                     <input
                       type="number"
@@ -259,7 +255,7 @@ const UpdateProductForm: React.FC<ProductFormProps> = ({ onAddProduct, onClose, 
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Selling Price (₹)
+                      Selling Price ($)
                     </label>
                     <input
                       type="number"
@@ -336,12 +332,11 @@ const UpdateProductForm: React.FC<ProductFormProps> = ({ onAddProduct, onClose, 
                   </label>
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                     {[
-                      { state: US7, setter: setSizeUS7, label: 'US7' },
-                      { state: US8, setter: setSizeUS8, label: 'US8' },
-                      { state: US9, setter: setSizeUS9, label: 'US9' },
-                      { state: US10, setter: setSizeUS10, label: 'US10' },
-                      { state: US11, setter: setSizeUS11, label: 'US11' },
-                      { state: US12, setter: setSizeUS12, label: 'US12' },
+                      { state: S, setter: setSizeS, label: 'S' },
+                      { state: M, setter: setSizeM, label: 'M' },
+                      { state: L, setter: setSizeL, label: 'L' },
+                      { state: XL, setter: setSizeXL, label: 'XL' },
+                      { state: XXL, setter: setSizeXXL, label: 'XXL' },
                     ].map(({ state, setter, label }) => (
                       <label key={label} className="flex items-center space-x-2 p-2 border rounded-md hover:bg-gray-50">
                         <input
