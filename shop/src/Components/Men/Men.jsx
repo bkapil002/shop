@@ -39,7 +39,7 @@ const Men = () => {
       </div>
       <div className="shopcategory-products">
         {products.map(product => (
-          <Link className='item' key={product.id}>
+          <Link to={`/product/${product._id}`} className='item' key={product._id}>
             <img src={product.imageUrls[0]} alt={product.name} />
             <p>{product.name}</p>
             <div className="item-prices">

@@ -11,7 +11,7 @@ const Navbar = () => {
 
     const [menu,setMenu] = useState("shop");
     const menuRef = useRef();
-    const { isAuthenticated }= useAuth();
+    const { isAuthenticated  , cart}= useAuth();
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
     const dropdown_toggle = (e) => {
@@ -48,6 +48,11 @@ const Navbar = () => {
           </button>
           </Link>
           <Link to='/cart'><img src={cart_icon} alt="" /></Link>
+          <div className="nav-cart-count">{cart && cart.length > 0 && (
+                      <span >
+                        {cart.length}
+                      </span>
+                    )}</div>
           </>
         )}
         

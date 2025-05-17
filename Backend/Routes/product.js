@@ -179,21 +179,25 @@ router.get('/related-products/:id', async (req, res) => {
     try {
         const productId = req.params.id;
         const originalProduct = await Product.findById(productId);
+
         if (!originalProduct) {
             return res.status(404).json({ success: false, message: 'Product not found' });
         }
+
         const relatedProducts = await Product.find({
             $or: [
-                { description: originalProduct.description, category: { $ne: originalProduct.category } },
-                { category: originalProduct.category, description: { $ne: originalProduct.description } }
+                { description: originalProduct.description, category: { $in: ['Men', 'Women', 'Kids'] } },
+                { category: { $in: ['Men', 'Women', 'Kids'] }, description: { $ne: originalProduct.description } }
             ],
             _id: { $ne: productId }
         });
+
         res.json(relatedProducts);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
 });
+
 
 // GET /:id (LAST ROUTE)
 router.get('/:id', async (req, res) => {

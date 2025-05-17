@@ -14,6 +14,8 @@ import Profile from './Components/Profile/Profile';
 import Kids from './Components/Kids.js/Kids';
 import Men from './Components/Men/Men';
 import Women from './Components/Women/Women';
+import ProductPage from './Components/ProductPage/ProductPage';
+import CartPage from './Components/Cart/CartPage';
 
 
 function App() {
@@ -32,6 +34,8 @@ function App() {
         <Route path='/kids' element={<Kids/>}/>
         <Route path='/women' element={<Women/>}/>
         <Route path='/men' element={<Men/>}/>
+        <Route path='/product/:id' element={<ProductPage/>}/>
+        <Route path= '/cart' element={<CartPage/>}/>
         </Routes>
        <Footer/>
        </AuthProvider>
