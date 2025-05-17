@@ -1,39 +1,63 @@
+import React, { useEffect, useState } from 'react';
+import './Men.css';
+import dropdown_icon from '../../Components/Assets/dropdown_icon.png';
+import top from '../image/topImage (1).png';
+import { Link } from 'react-router-dom';
 
-import './Men.css'
-import dropdown_icon from '../Components/Assets/dropdown_icon.png'
-import top from '../image/topImage (1).png'
+// Mock function to fetch products
+const fetchProducts = async () => {
+  // Replace this with your actual API call
+  const response = await fetch('http://localhost:5000/api/product');
+  const data = await response.json();
+  return data;
+};
 
-const Women = () => {
+const Men = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const getProducts = async () => {
+      const allProducts = await fetchProducts();
+      // Filter products to only include those in the "men" category
+      const menProducts = allProducts.filter(product => product.category === 'Men');
+      setProducts(menProducts);
+    };
+
+    getProducts();
+  }, []);
+
   return (
     <div className='shop-category'>
       <img className='shopcategory-banner' src={top} alt="" />
       <div className="shopcategory-indexSort">
         <p>
-          <span>Showing 1-12</span> out of 36 products
+          <span>Showing 1-{products.length}</span> out of {products.length} products
         </p>
         <div className="shopcategory-sort">
           Sort by <img src={dropdown_icon} alt="" />
         </div>
       </div>
       <div className="shopcategory-products">
-       <div className='item'>
-       <Link to={`/product/${props.id}`}><img onClick={window.scrollTo(0,0)} src={props.image} alt="" /></Link>
-       <p>{props.name}</p>
-        < div className="item-prices">
-         <div className="item-price-new">
-            ${props.new_price}
-        </div>
-        <div className="item-price-old">
-            ${props.old_price}
-        </div>
-      </div>
-    </div>
+        {products.map(product => (
+          <Link className='item' key={product.id}>
+            <img src={product.imageUrls[0]} alt={product.name} />
+            <p>{product.name}</p>
+            <div className="item-prices">
+              <div className="item-price-new">
+                ${product.sellingPrice}
+              </div>
+              <div className="item-price-old">
+                ${product.price}
+              </div>
+            </div>
+          </Link>
+        ))}
       </div>
       <div className="shopcategory-loadmore">
         Explore More
       </div>
     </div>
-  )
+  );
 }
 
-export default Women
+export default Men;

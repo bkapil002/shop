@@ -11,6 +11,10 @@ import Footer from './Components/Footer/Footer';
 import AddressForm from './Components/AddressForm/AddressForm';
 import UserAddressForm from './Components/UserAddress/UserAddressForm'
 import Profile from './Components/Profile/Profile';
+import Kids from './Components/Kids.js/Kids';
+import Men from './Components/Men/Men';
+import Women from './Components/Women/Women';
+
 
 function App() {
   return (
@@ -25,6 +29,9 @@ function App() {
         <Route path='/address' element = {<AddressForm/>}/>
         <Route path='/AddressDetails'element={<UserAddressForm/>}/>
         <Route path='/profile'  element = {<Profile/>}/>
+        <Route path='/kids' element={<Kids/>}/>
+        <Route path='/women' element={<Women/>}/>
+        <Route path='/men' element={<Men/>}/>
         </Routes>
        <Footer/>
        </AuthProvider>
