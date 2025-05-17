@@ -4,11 +4,15 @@ import logo from '../Assets/logo.png'
 import cart_icon from '../Assets/cart_icon.png'
 import nav_dropdown from '../Assets/nav_dropdown.png'
 import { Link } from 'react-router-dom'
-
+import { useAuth } from '../../Context/AuthContext'; 
+import { User} from 'lucide-react';
+import SideBar from '../SIdeBar/SideBar'
 const Navbar = () => {
 
     const [menu,setMenu] = useState("shop");
     const menuRef = useRef();
+    const { isAuthenticated }= useAuth();
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
     const dropdown_toggle = (e) => {
       menuRef.current.classList.toggle('nav-menu-visible');
@@ -29,9 +33,29 @@ const Navbar = () => {
         <li onClick={()=>{setMenu("kids")}}><Link to='/kids'>Kids</Link>{menu==="kids"?<hr/>:<></>}</li>
       </ul>
       <div className="nav-login-cart">
-        <Link to='/login'><button>Login</button></Link>
-        <Link to='/cart'><img src={cart_icon} alt="" /></Link>
+        {!isAuthenticated ? (
+          <Link to='/login'>
+                <button>
+                LogIn
+            </button>
+          </Link>
+          
+        ):(
+          <>
+          <Link>
+          <button onClick={() => setIsSidebarOpen(true)}  style={{border:'none'}}>
+                 <User/>   
+          </button>
+          </Link>
+          <Link to='/cart'><img src={cart_icon} alt="" /></Link>
+          </>
+        )}
+        
+
+
       </div>
+      <SideBar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
+
     </div>
   )
 }

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './CSS/LoginSignup.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { Eye, EyeOff } from 'lucide-react';
+import {useAuth} from '../Context/AuthContext'
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -12,6 +13,7 @@ const Login = () => {
   const [agreedToTerms, setAgreedToTerms] = useState(false);
   const [isPasswordVisible, setIsPasswordVisible] = useState(false); // State for password visibility
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -40,6 +42,8 @@ const Login = () => {
       });
 
       if (response.ok) {
+        const data = await response.json();
+        login({ ...data.user, token: data.token });
         alert('Logged in successfully');
         navigate('/');
       } else {

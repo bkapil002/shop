@@ -9,7 +9,8 @@ import Signup from './Pages/Signup'
 import {AuthProvider} from './Context/AuthContext'
 import Footer from './Components/Footer/Footer';
 import AddressForm from './Components/AddressForm/AddressForm';
-
+import UserAddressForm from './Components/UserAddress/UserAddressForm'
+import Profile from './Components/Profile/Profile';
 
 function App() {
   return (
@@ -22,7 +23,9 @@ function App() {
         <Route path='/login' element={<Login/>}/>
         <Route path='/signup' element ={<Signup/>}/>
         <Route path='/address' element = {<AddressForm/>}/>
-      </Routes>
+        <Route path='/AddressDetails'element={<UserAddressForm/>}/>
+        <Route path='/profile'  element = {<Profile/>}/>
+        </Routes>
        <Footer/>
        </AuthProvider>
           <Toaster position="top-right" />
