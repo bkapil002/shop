@@ -12,7 +12,7 @@ interface ProductFormProps {
 const ProductForm: React.FC<ProductFormProps> = ({ onAddProduct, onCancel }) => {
   const [name, setName] = useState('');
   const [description, setdescription] = useState('');
-  const [category, setCategory] = useState('Lifestyle');
+  const [category, setCategory] = useState('Men');
   const [price, setPrice] = useState('');
   const [details, setDetails] = useState('');
   const [sellingPrice ,setSellingPrice] = useState('')
